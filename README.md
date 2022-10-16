@@ -1,5 +1,9 @@
-# How To Add NLP And Language AI To Your Next.js App
+# transcript-to-summaryChunks-recursive-alpha-v1
 
-This is a code companion for the blog: [How To Add NLP And Language AI To Your Next.js App](https://txt.cohere.ai/add-nlp-language-ai-to-next-js-app).
+This is a script that takes an interview, splits into chunks, recursively summarises via OPENAI, and concats it back together.
 
-This blog is a tutorial that shows you how to add language analysis features to an existing Next.js Hotel Review application. It uses sentiment analysis to analyze and classify a user’s review as either positive or negative.
+
+Model: text-davinci-02
+Prompt: Write a concise summary of the following including all key commercial concepts and quantitative information in your summary: <<TRANSCRIPT>>
+
+CONCISE SUMMARY:
