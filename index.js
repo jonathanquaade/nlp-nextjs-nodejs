@@ -64,7 +64,7 @@ async function summariseChunk(input) {
     model: "text-davinci-002",
     prompt: input,
     temperature: 0.6,
-    max_tokens: 500,
+    max_tokens: 2000,
     top_p: 1,
     frequency_penalty: 0.25,
     presence_penalty: 0.0,
@@ -80,9 +80,9 @@ console.log('Prompt used \n\n', summaryPrompt)
 // Get the transcript
 const sampleTranscript = `We're a management consultancy based in the UK. Most of our work is on behalf of investors, looking at investing in businesses in a range of different markets. So we've in the past, we've done a fair amount of work as a firm in wealth management space broadly. But in this particular case, we're interested in a sort of sub-segment, a niche within that, which is wealth management services provided to individuals that have some connection with the U.S. We're calling them U.S.-connected individuals, which is a little bit vague and abstract, but effectively what it means is individuals in the UK who for whatever reason have some sort of tax complication or reporting complication with respect to the U.S., that makes their wealth management needs slightly more complicated than the typical individual.`
 
-const transcriptToSummaryChunks = async (input) => {
-  let allTranscript = input
-  let chunks = wrap(allTranscript, { width: 300 })
+const transcriptToSummaryChunks = async (transcript) => {
+  let allTranscript = transcript.replace(/\n/g, " ")
+  let chunks = wrap(allTranscript, { width: 2000 })
   let arrayOfChunks = chunks.split(/\r?\n|\r|\n/g)
   arrayOfChunks = arrayOfChunks.map(element => element.trim());
   console.log(arrayOfChunks)
